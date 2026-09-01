@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>{{ object.name }}</h1>
+
+<p><strong>Marca:</strong> {{ object.brand }}</p>
+<p><strong>Modello:</strong> {{ object.model }}</p>
+<p><strong>Seriale:</strong> {{ object.serial_number }}</p>
+
+<hr>
+
+{% if perms.core.change_device %}
+    <a href="{% url 'device_edit' object.pk %}" class="btn btn-warning">Modifica</a>
+{% endif %}
+
+{% if perms.core.delete_device %}
+    <a href="{% url 'device_delete' object.pk %}" class="btn btn-danger">Elimina</a>
+{% endif %}
+
+<a href="{% url 'device_list' %}" class="btn btn-secondary">Torna alla lista</a>
+
+{% endblock %}

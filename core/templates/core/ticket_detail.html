@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% block title %}Dettaglio Ticket{% endblock %}
+
+{% block content %}
+<h2>{{ ticket.title }}</h2>
+
+<p><strong>Descrizione:</strong> {{ ticket.description }}</p>
+<p><strong>Dispositivo:</strong> {{ ticket.device.brand }} {{ ticket.device.model }}</p>
+<p><strong>Cliente:</strong> {{ ticket.customer.username }}</p>
+<p><strong>Tecnico:</strong> {{ ticket.technician }}</p>
+<p><strong>Stato:</strong> {{ ticket.get_status_display }}</p>
+<p><strong>Priorità:</strong> {{ ticket.priority }}</p>
+<p><strong>Creato il:</strong> {{ ticket.created_at }}</p>
+
+{% if user.groups.filter(name="Manager").exists %}
+    <a href="{% url 'ticket_edit' ticket.pk %}">Modifica</a>
+{% elif user.groups.filter(name="Technician").exists and ticket.technician == user %}
+    <a href="{% url 'ticket_edit' ticket.pk %}">Modifica</a>
+{% endif %}
+
+{% endblock %}

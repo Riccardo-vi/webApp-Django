@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% block title %}Lista Ticket{% endblock %}
+
+{% block content %}
+<h2>Lista Ticket</h2>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Cerca..." value="{{ request.GET.q }}">
+    <select name="status">
+        <option value="">Tutti</option>
+        <option value="OPEN">Aperti</option>
+        <option value="IN_PROGRESS">In lavorazione</option>
+        <option value="CLOSED">Chiusi</option>
+    </select>
+    <button type="submit">Filtra</button>
+</form>
+
+<ul>
+    {% for ticket in tickets %}
+        <li>
+            <a href="{% url 'ticket_detail' ticket.pk %}">{{ ticket.title }}</a>
+            — {{ ticket.get_status_display }} — {{ ticket.priority }}
+        </li>
+    {% empty %}
+        <li>Nessun ticket trovato.</li>
+    {% endfor %}
+</ul>
+
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Precedente</a>
+    {% endif %}
+
+    <span>Pagina {{ page_obj.number }} di {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Successiva</a>
+    {% endif %}
+</div>
+{% endblock %}

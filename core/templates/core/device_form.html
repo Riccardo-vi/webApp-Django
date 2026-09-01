@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>
+    {% if object %}
+        Modifica Device
+    {% else %}
+        Aggiungi Device
+    {% endif %}
+</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-success">Salva</button>
+    <a href="{% url 'device_list' %}" class="btn btn-secondary">Annulla</a>
+</form>
+
+{% endblock %}

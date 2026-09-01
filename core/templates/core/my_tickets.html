@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% block title %}I miei ticket{% endblock %}
+
+{% block content %}
+<h2>I miei ticket</h2>
+
+<ul>
+    {% for ticket in tickets %}
+        <li>
+            <a href="{% url 'ticket_detail' ticket.pk %}">{{ ticket.title }}</a>
+            — {{ ticket.get_status_display }}
+        </li>
+    {% empty %}
+        <li>Non hai ticket aperti.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

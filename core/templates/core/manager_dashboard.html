@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Dashboard Manager{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Dashboard Manager</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Titolo</th>
+                <th>Cliente</th>
+                <th>Tecnico</th>
+                <th>Stato</th>
+                <th>Priorità</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td><a href="{% url 'ticket_detail' ticket.pk %}">{{ ticket.title }}</a></td>
+                <td>{{ ticket.customer.username }}</td>
+                <td>{{ ticket.technician.username|default:'Non assegnato' }}</td>
+                <td>{{ ticket.get_status_display }}</td>
+                <td>{{ ticket.get_priority_display }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nessun ticket presente.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

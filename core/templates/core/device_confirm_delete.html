@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>Elimina Device</h1>
+
+<p>Sei sicuro di voler eliminare <strong>{{ object.name }}</strong>?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Elimina</button>
+    <a href="{% url 'device_detail' object.pk %}" class="btn btn-secondary">Annulla</a>
+</form>
+
+{% endblock %}

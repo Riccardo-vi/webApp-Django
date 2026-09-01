@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}RepairDesk{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="{% if request.session.theme == 'dark' %}dark{% endif %}">
+<header>
+    <h1><a href="{% url 'home' %}">RepairDesk</a></h1>
+<nav class="navbar">
+    <a href="{% url 'ticket_list' %}">Ticket</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'my_tickets' %}">I miei ticket</a>
+        <a href="{% url 'ticket_create' %}">Nuovo ticket</a>
+        <a href="{% url 'device_list' %}">Device</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+
+    <a href="{% url 'toggle_theme' %}">Tema</a>
+</nav>
+
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>

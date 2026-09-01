@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>I tuoi Device</h1>
+
+<a href="{% url 'device_create' %}" class="btn btn-primary">Aggiungi Device</a>
+
+<ul>
+    {% for device in object_list %}
+        <li>
+            <a href="{% url 'device_detail' device.pk %}">
+                {{ device.name }} – {{ device.brand }} {{ device.model }}
+            </a>
+        </li>
+    {% empty %}
+        <li>Nessun device registrato.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
