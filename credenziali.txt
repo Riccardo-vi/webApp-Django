@@ -1,0 +1,18 @@
+La password è la stessa per tutti gli utenti: Password123!
+
+1. AMMINISTRATORE (Superuser)
+   - Username: admin
+   - Email: admin@example.it
+
+2. MANAGER (Ruolo: Manager)
+   - Username: manager1
+   - Username: manager2
+   
+
+3. TECNICI (Ruolo: Technician)
+   - Username: tech1
+   - Username : tech2
+
+4. CLIENTI (Ruolo: Customer)
+   - Username: customer1
+   - Username: customer2

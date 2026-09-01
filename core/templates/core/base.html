@@ -11,11 +11,16 @@
 <header>
     <h1><a href="{% url 'home' %}">RepairDesk</a></h1>
 <nav class="navbar">
-    <a href="{% url 'ticket_list' %}">Ticket</a>
+    
 
     {% if user.is_authenticated %}
-        <a href="{% url 'my_tickets' %}">I miei ticket</a>
-        <a href="{% url 'ticket_create' %}">Nuovo ticket</a>
+        
+        {% if not request.user.groups.all.0.name == "Customer" %}
+        <a href="{% url 'ticket_list' %}">Ticket</a>
+        {% endif %}
+        {% if not request.user.groups.all.0.name == "Technician" %}
+            <a href="{% url 'ticket_create' %}" class="...">New Ticket</a>
+        {% endif %}
         <a href="{% url 'device_list' %}">Device</a>
         <a href="{% url 'logout' %}">Logout</a>
     {% else %}

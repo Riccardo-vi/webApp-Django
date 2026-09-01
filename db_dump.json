@@ -1,0 +1,344 @@
+[
+{
+    "model": "auth.group",
+    "fields": {
+        "name": "Customer",
+        "permissions": [
+            [
+                "add_device",
+                "core",
+                "device"
+            ],
+            [
+                "add_ticket",
+                "core",
+                "ticket"
+            ]
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "fields": {
+        "name": "Technician",
+        "permissions": [
+            [
+                "change_device",
+                "core",
+                "device"
+            ],
+            [
+                "change_ticket",
+                "core",
+                "ticket"
+            ]
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "fields": {
+        "name": "Manager",
+        "permissions": [
+            [
+                "add_device",
+                "core",
+                "device"
+            ],
+            [
+                "change_device",
+                "core",
+                "device"
+            ],
+            [
+                "delete_device",
+                "core",
+                "device"
+            ],
+            [
+                "view_device",
+                "core",
+                "device"
+            ],
+            [
+                "add_ticket",
+                "core",
+                "ticket"
+            ],
+            [
+                "change_ticket",
+                "core",
+                "ticket"
+            ],
+            [
+                "delete_ticket",
+                "core",
+                "ticket"
+            ],
+            [
+                "view_manager_dashboard",
+                "core",
+                "ticket"
+            ],
+            [
+                "view_ticket",
+                "core",
+                "ticket"
+            ]
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$AsAVJs3WZUK1ZQ8hz6O5qg$J/eKjA0RhSvIjAZuCFSBPUeLmYFoCo0/A8N1Vc3i/yw=",
+        "last_login": "2026-09-01T20:16:50.800Z",
+        "is_superuser": false,
+        "username": "customer1",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-03-02T10:00:43Z",
+        "groups": [
+            [
+                "Customer"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$3G9eQXJN3vbLgUZ47Pltvw$mmrEa1AcJ+hbcZVXzG9D+Krm6GmnGu7384RDDSNp26A=",
+        "last_login": "2026-09-01T20:22:05.726Z",
+        "is_superuser": false,
+        "username": "customer2",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-03-02T10:01:44Z",
+        "groups": [
+            [
+                "Customer"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$6u7jNvFQzhAAGE3W8fqK7C$KEiKJbi9QgI3/ulKuy4cAf+BgIrphlbeuvUfezQ8ZWs=",
+        "last_login": "2026-09-01T20:13:58.278Z",
+        "is_superuser": false,
+        "username": "tech1",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-03-02T10:01:59Z",
+        "groups": [
+            [
+                "Technician"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$600000$EdW0puEWAgzpoF6eItb3F3$6ApoIIF/nt25G+3Oc4FXQ+Rk1LdAsiOMNnugY0Nc5FU=",
+        "last_login": "2026-03-24T08:29:20.348Z",
+        "is_superuser": false,
+        "username": "tech2",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-03-02T10:02:10Z",
+        "groups": [
+            [
+                "Manager"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$uj8hEDltfVomrT72oKdMUp$LZuq4DqYpKAxvBvLQE2gKORu8PZXgdvu3pTPvSvlJb4=",
+        "last_login": "2026-09-01T20:23:19.466Z",
+        "is_superuser": false,
+        "username": "manager1",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-03-02T10:02:26Z",
+        "groups": [
+            [
+                "Manager"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$600000$jb8Man3zvgCbcmoGohjeHH$GD/JBXBSIvR1VwIou5i9cZHCCEVCESikZTX32d9yRbQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "manager2",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-03-02T10:02:35Z",
+        "groups": [
+            [
+                "Manager"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$45EOg2zieGoz0NnWQiAv3a$m9aHU2CC/nt1sbWexof+xoXRtzQz+JWMfxt/8CyTI7g=",
+        "last_login": "2026-09-01T20:23:54.247Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@example.it",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-09-01T11:40:13.435Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "core.device",
+    "pk": 1,
+    "fields": {
+        "owner": [
+            "customer1"
+        ],
+        "brand": "Apple",
+        "model": "IPhone 13pro",
+        "serial_number": "1234"
+    }
+},
+{
+    "model": "core.device",
+    "pk": 3,
+    "fields": {
+        "owner": [
+            "customer1"
+        ],
+        "brand": "asus",
+        "model": "aspire",
+        "serial_number": "123454567"
+    }
+},
+{
+    "model": "core.device",
+    "pk": 4,
+    "fields": {
+        "owner": [
+            "customer2"
+        ],
+        "brand": "Android",
+        "model": "Xiaomi 15 pro",
+        "serial_number": "123454566"
+    }
+},
+{
+    "model": "core.ticket",
+    "pk": 1,
+    "fields": {
+        "title": "RIparazione Iphone13 pro",
+        "description": "buongiorno, mi servirebbe una mano per lo schermo del mio iphone",
+        "device": 1,
+        "customer": [
+            "customer1"
+        ],
+        "technician": [
+            "tech1"
+        ],
+        "status": "IN_PROGRESS",
+        "priority": "MEDIUM",
+        "created_at": "2026-03-24T08:18:21.287Z",
+        "updated_at": "2026-03-24T08:28:26.243Z",
+        "expected_close_date": "2027-02-28"
+    }
+},
+{
+    "model": "core.ticket",
+    "pk": 2,
+    "fields": {
+        "title": "schermo rotto",
+        "description": "il cliente riscontra problemi nello schermo",
+        "device": 1,
+        "customer": [
+            "admin"
+        ],
+        "technician": null,
+        "status": "OPEN",
+        "priority": "HIGH",
+        "created_at": "2026-09-01T12:35:54.540Z",
+        "updated_at": "2026-09-01T12:35:54.540Z",
+        "expected_close_date": "2028-06-30"
+    }
+},
+{
+    "model": "core.ticket",
+    "pk": 3,
+    "fields": {
+        "title": "device rottto",
+        "description": "battteria non funzionante",
+        "device": 3,
+        "customer": [
+            "customer1"
+        ],
+        "technician": null,
+        "status": "OPEN",
+        "priority": "MEDIUM",
+        "created_at": "2026-09-01T12:57:32.315Z",
+        "updated_at": "2026-09-01T12:57:32.315Z",
+        "expected_close_date": null
+    }
+},
+{
+    "model": "core.ticket",
+    "pk": 4,
+    "fields": {
+        "title": "Telefono",
+        "description": "ricarica non funzionante",
+        "device": 4,
+        "customer": [
+            "customer2"
+        ],
+        "technician": null,
+        "status": "OPEN",
+        "priority": "MEDIUM",
+        "created_at": "2026-09-01T20:22:58.018Z",
+        "updated_at": "2026-09-01T20:22:58.018Z",
+        "expected_close_date": null
+    }
+}
+]
