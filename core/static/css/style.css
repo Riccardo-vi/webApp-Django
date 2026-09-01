@@ -1,41 +1,13 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px;
-}
-header a {
-    color: #fff;
-    margin-right: 10px;
-    text-decoration: none;
-}
-body.dark {
-    background: #222;
-    color: #eee;
-}
-nav.navbar {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
-}
-
-nav.navbar a {
-    text-decoration: none;
-    color: inherit;
-}
-/* Colori migliorati */
 :root {
   --primary: #007bff;
+  --primary-hover: #0056b3;
   --secondary: #6c757d;
   --danger: #dc3545;
   --success: #28a745;
   --bg-light: #f8f9fa;
   --text-dark: #212529;
+  --border-color: #ddd;
+  --transition-speed: 0.3s;
 }
 
 * {
@@ -45,17 +17,28 @@ nav.navbar a {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   background-color: var(--bg-light);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity var(--transition-speed);
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
@@ -68,7 +51,6 @@ header a {
   text-decoration: none;
 }
 
-/* Navbar */
 nav.navbar {
   display: flex;
   gap: 1.5rem;
@@ -77,38 +59,20 @@ nav.navbar {
 }
 
 nav.navbar a {
-  color: white;
-  text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: background 0.3s;
+  transition: background var(--transition-speed);
 }
 
 nav.navbar a:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
 }
 
-/* Main content */
 main {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 1rem;
-}
-
-/* Dark mode */
-body.dark {
-  background-color: #1a1a1a;
-  color: #e0e0e0;
-}
-
-body.dark header {
-  background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
-}
-
-body.dark main {
-  background-color: #2d2d2d;
-  padding: 1.5rem;
-  border-radius: 8px;
 }
 
 form {
@@ -120,9 +84,15 @@ form {
 
 input, select, button {
   padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 1rem;
+  outline: none;
+  transition: border-color var(--transition-speed);
+}
+
+input:focus, select:focus {
+  border-color: var(--primary);
 }
 
 button {
@@ -130,36 +100,13 @@ button {
   color: white;
   border: none;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background var(--transition-speed);
 }
 
 button:hover {
-  background: #0056b3;
+  background: var(--primary-hover);
 }
 
-/* Pagination */
-.pagination {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
-}
-
-.pagination a {
-  padding: 0.5rem 1rem;
-  background: var(--primary);
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s;
-}
-
-.pagination a:hover {
-  background: #0056b3;
-}
-
-/* Lists */
 ul {
   list-style: none;
   padding: 0;
@@ -175,16 +122,55 @@ li:hover {
   background: var(--bg-light);
 }
 
+.pagination {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.pagination a {
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background var(--transition-speed);
+}
+
+.pagination a:hover {
+  background: var(--primary-hover);
+  text-decoration: none;
+}
+
+body.dark {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark header {
+  background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+}
+
+body.dark main {
+  background-color: #2d2d2d;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark li {
+  border-bottom-color: #3d3d3d;
+}
+
 body.dark li:hover {
   background: #3d3d3d;
 }
 
-/* Links */
-a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+body.dark input, 
+body.dark select {
+  background-color: #333;
+  color: #fff;
+  border-color: #444;
 }

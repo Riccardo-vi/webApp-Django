@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from .models import Device, Ticket
 
 @admin.register(Device)
@@ -12,3 +13,4 @@ class TicketAdmin(admin.ModelAdmin):
     list_display = ('title', 'status', 'priority', 'customer', 'technician', 'created_at', 'expected_close_date')
     list_filter = ('status', 'priority', 'technician')
     search_fields = ('title', 'description', 'customer__username', 'technician__username')
+

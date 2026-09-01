@@ -12,9 +12,7 @@
 <p><strong>Priorità:</strong> {{ ticket.priority }}</p>
 <p><strong>Creato il:</strong> {{ ticket.created_at }}</p>
 
-{% if user.groups.filter(name="Manager").exists %}
-    <a href="{% url 'ticket_edit' ticket.pk %}">Modifica</a>
-{% elif user.groups.filter(name="Technician").exists and ticket.technician == user %}
+{% if is_manager or is_technician %}
     <a href="{% url 'ticket_edit' ticket.pk %}">Modifica</a>
 {% endif %}
 
